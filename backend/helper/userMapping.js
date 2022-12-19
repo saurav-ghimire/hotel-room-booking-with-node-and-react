@@ -20,5 +20,8 @@ module.exports = function (user, data) {
     if (data.address) {
         user.address = data.address
     }
+    if (data.role) {
+        user.role = data.role
+    }
     return user
 }

@@ -5,7 +5,7 @@ const passwordHash = require('password-hash');
 const config = require('./../../config/config')
 var jwt = require('jsonwebtoken');
 
-function registerProcess(body, res) {
+function registerProcess(body, res, next) {
     const newUser = new userValidatorModel({});
     const mappedUser = userMapping(newUser, body)
 
@@ -14,6 +14,7 @@ function registerProcess(body, res) {
             return next(err)
         }
         res.status(200).json(userInserted)
+        next()
     })
 }
 function loginProcess(body, res) {

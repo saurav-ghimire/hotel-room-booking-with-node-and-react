@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 })
 app.use(function (err, req, res, next) {
     res.json({
-        err: err || err.message
+        err: err.message || err
     })
 })
 app.use(function (req, res, next) {

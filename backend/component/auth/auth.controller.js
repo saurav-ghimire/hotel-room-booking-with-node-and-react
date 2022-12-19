@@ -13,7 +13,7 @@ let registerPage = function (req, res, next) {
 }
 let registerProcess = function (req, res, next) {
 
-    authQuery.registerProcess(req.body, res)
+    authQuery.registerProcess(req.body, res, next)
 }
 let forgetPasswordPage = function (req, res, next) {
     console.log('i am forget password route')
