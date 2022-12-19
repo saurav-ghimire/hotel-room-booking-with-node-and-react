@@ -1,0 +1,14 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.custom-form {
+    height: 100vh;
+}
+
+h2 {
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    text-align: center;
+}

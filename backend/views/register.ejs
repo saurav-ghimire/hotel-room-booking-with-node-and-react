@@ -1,0 +1,54 @@
+<%- include('./layouts/header.ejs'); %>
+    <div class="container">
+        <div class="row justify-content-center custom-form">
+            <div class="col-4 align-self-center">
+                <h2>Register Here</h2>
+                <form method="POST" action="register">
+                    <!-- Name input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="registerName" name="name" class="form-control" />
+                        <label class="form-label" for="registerName">Name</label>
+                    </div>
+
+                    <!-- Username input -->
+                    <div class="form-outline mb-4">
+                        <input type="text" id="registerUsername" name="username" class="form-control" />
+                        <label class="form-label" for="registerUsername">Username</label>
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-4">
+                        <input type="email" id="registerEmail" name="email" class="form-control" />
+                        <label class="form-label" for="registerEmail">Email</label>
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input type="tel" id="registerEmail" name="phone" class="form-control" />
+                        <label class="form-label" for="registerEmail">Phone</label>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-outline mb-4">
+                        <input type="password" id="registerPassword" name="password" class="form-control" />
+                        <label class="form-label" for="registerPassword">Password</label>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="form-check d-flex justify-content-center mb-4">
+                        <input class="form-check-input me-2" type="checkbox" value="" id="registerCheck" checked
+                            aria-describedby="registerCheckHelpText" />
+                        <label class="form-check-label" for="registerCheck">
+                            I have read and agree to the terms
+                        </label>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-3">Register Now</button>
+                </form>
+                <div class="text-center">
+                    <p>Already a member? <a href="login">Login Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('./layouts/footer.ejs'); %>

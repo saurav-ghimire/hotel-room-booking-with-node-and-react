@@ -1,0 +1,22 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "password-hash": "^1.2.2"
+  }
+}
