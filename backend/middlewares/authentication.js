@@ -26,6 +26,7 @@ module.exports = function (req, res, next) {
                     })
                 }
                 req.loggedInUser = finalVerifiedUser.id;
+                req.loggedInUserRole = finalVerifiedUser.role;
                 next()
             })
         });

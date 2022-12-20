@@ -10,8 +10,8 @@ const roomsRoute = require('./../component/rooms/rooms.route');
 const dashboardRoute = require('./../component/user/user.route');
 
 router.use('/auth', authRoute);
-router.use('/user', authentication, authorization, userRoute);
-router.use('/rooms', roomsRoute);
-router.use('/dashboard', authentication, authorization, dashboardRoute);
+router.use('/user', authentication, authorization.adminChecker, userRoute);
+router.use('/rooms', authentication, roomsRoute);
+// router.use('/dashboard', authentication, authorization, dashboardRoute);
 
 module.exports = router;

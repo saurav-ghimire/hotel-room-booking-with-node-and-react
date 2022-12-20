@@ -1,17 +1,19 @@
-const userModel = require("../component/user/user.model")
-
-module.exports = function (req, res, next) {
-    userModel.findById(req.loggedInUser, function (err, user) {
-        if (err) {
-            return next(err)
-        }
-        if (user.role === 'super-admin' || 'admin' || 'manager') {
-            // if (user.role === 'route-handle') {
-            next();
-        } else {
-            next({
-                msg: 'Permission Denied'
-            })
-        }
-    })
+function adminChecker(req, res, next) {
+    if (req.loggedInUserRole === 'super-admin' || req.loggedInUserRole === 'admin') {
+        return next();
+    } else {
+        return next({
+            msg: 'Permission Denied'
+        })
+    }
 }
+function editorChecker(req, res, next) {
+    if (req.loggedInUserRole === 'manager' || req.loggedInUserRole === 'editor') {
+        return next();
+    } else {
+        return next({
+            msg: 'Permission Denied'
+        })
+    }
+}
+module.exports = { adminChecker, editorChecker }
