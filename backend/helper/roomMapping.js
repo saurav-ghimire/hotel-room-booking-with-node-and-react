@@ -30,7 +30,6 @@ module.exports = function (rooms, data) {
     if (data.bookedLastDate) {
         rooms.bookedLastDate = data.bookedLastDate
     }
-    console.log(rooms)
     return rooms
 
 }

@@ -2,14 +2,19 @@ const express = require('express')
 const router = express.Router()
 const roomController = require('./rooms.controller')
 
-router.route('/')
-    .get(roomController.getAllRooms)
-    .post(roomController.createRooms)
+const authentication = require('../../middlewares/authentication')
+const authorization = require('../../middlewares/authorization')
 
+router.route('/')
+    .get(authentication, authorization.editorChecker, roomController.getAllRooms)
+    .post(authentication, authorization.editorChecker, roomController.createRooms)
+
+router.route('/loggedinuser-rooms')
+    .get(authentication, authorization.editorChecker, roomController.getRoomsOfLoggedInUser)
 router.route('/:id')
-    .get(roomController.getRoomWithId)
-    .delete(roomController.deleteRoomWithId)
-    .put(roomController.updateRoomWithId)
+    .get(authentication, authorization.editorChecker, roomController.getRoomWithId)
+    .delete(authentication, authorization.editorChecker, roomController.deleteRoomWithId)
+    .put(authentication, authorization.editorChecker, roomController.updateRoomWithId)
 
 
 module.exports = router;

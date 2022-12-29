@@ -28,6 +28,7 @@ function getAllRoomQuery() {
             if (done.length < 1) {
                 resolve({ msg: 'Rooms Not Available' })
             }
+
             resolve(done)
         })
 
@@ -88,11 +89,26 @@ let deleteRoomWithId = function (id) {
         });
     })
 }
+let getLoggedInUserRooms = function (req) {
+    return new Promise(function (resolve, reject) {
+        roomModel.find({ createdBy: req.loggedInUser }, function (err, done) {
+            if (err) {
+                reject(err);
+            }
+            if (!done) {
+                resolve({ msg: 'URL Not Valid' })
+            } else {
+                resolve(done)
+            }
 
+        }).populate('createdBy')
+    })
+}
 module.exports = {
     createRoomQuery,
     getAllRoomQuery,
     getRoomWithId,
     deleteRoomWithId,
-    updateRoomWithId
+    updateRoomWithId,
+    getLoggedInUserRooms
 }

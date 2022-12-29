@@ -1,6 +1,8 @@
 const roomQuery = require('./rooms.query');
 
 function createRooms(req, res, next) {
+    req.body.createdBy = req.loggedInUser;
+    console.log(req.body)
     roomQuery.createRoomQuery(req.body)
         .then(function (data) {
             res.json(data)
@@ -11,6 +13,7 @@ function createRooms(req, res, next) {
 }
 
 function getAllRooms(req, res, next) {
+
     roomQuery.getAllRoomQuery(req.body)
         .then(function (data) {
             res.json(data)
@@ -51,10 +54,20 @@ let deleteRoomWithId = function (req, res, next) {
             next(err)
         })
 }
+let getRoomsOfLoggedInUser = function (req, res, next) {
+    roomQuery.getLoggedInUserRooms(req)
+        .then(function (data) {
+            res.json(data)
+        })
+        .catch(function (err) {
+            next(err)
+        })
+}
 module.exports = {
     createRooms,
     getAllRooms,
     getRoomWithId,
     deleteRoomWithId,
-    updateRoomWithId
+    updateRoomWithId,
+    getRoomsOfLoggedInUser
 }

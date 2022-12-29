@@ -8,6 +8,7 @@ function adminChecker(req, res, next) {
     }
 }
 function editorChecker(req, res, next) {
+    console.log(req.loggedInUserRole)
     if (req.loggedInUserRole === 'manager' || req.loggedInUserRole === 'editor') {
         return next();
     } else {
