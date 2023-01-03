@@ -11,8 +11,8 @@ const additionalServiceSchema = new Schema({
     serviceImage: {
         type: String
     },
-});
+}, { timestamps: true });
 
-const additionalServiceModel = mongoose.moodel('roomsAdditionalServices', additionalServiceSchema);
+const additionalServiceModel = mongoose.model('roomsAdditionalServices', additionalServiceSchema);
 
-exports.module = { additionalServiceModel }
+module.exports = additionalServiceModel;

@@ -5,6 +5,7 @@ const mongodb = require('mongodb');
 function createRoomQuery(body) {
     return new Promise(function (resolve, reject) {
         const roomStoreModel = new roomModel({});
+        console.log('body', body)
         const udpatedroomMaping = roomMaping(roomStoreModel, body)
 
         udpatedroomMaping.save(function (err, done) {
@@ -12,7 +13,7 @@ function createRoomQuery(body) {
 
                 reject(err)
             }
-
+            console.log('done', done)
             resolve(done)
         })
 

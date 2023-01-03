@@ -16,7 +16,7 @@ module.exports = function (rooms, data) {
         rooms.thumbnailImage = data.thumbnailImage
     }
     if (data.GalleryImages) {
-        rooms.GalleryImages = rooms.GalleryImages.concat(data.GalleryImages.split(','))
+        rooms.GalleryImages = data.GalleryImages
     }
     if (data.isBooked) {
         rooms.isBooked = data.isBooked

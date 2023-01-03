@@ -12,18 +12,10 @@ const roomTypeSchema = new Schema({
         type: Number,
         required: true
     },
-    costPerExtraHour: {
-        type: Number,
-        required: true
-    },
     discountRate: {
         type: Number,
     },
     guests: {
-        type: Number,
-        required: true
-    },
-    children: {
         type: Number,
         required: true
     },
@@ -35,9 +27,6 @@ const roomTypeSchema = new Schema({
         type: Number,
         required: true
     },
-    totalRooms: {
-        type: Number,
-    },
     bedSize: {
         type: String,
         required: true
@@ -45,8 +34,8 @@ const roomTypeSchema = new Schema({
     additionalService: {
         type: Array
     },
-});
+}, { timestamps: true });
 
-const roomTypeModel = mongoose.moodel('roomType', roomTypeSchema);
+const roomTypeModel = mongoose.model('roomType', roomTypeSchema);
 
-exports.module = { roomTypeModel }
+module.exports = roomTypeModel;

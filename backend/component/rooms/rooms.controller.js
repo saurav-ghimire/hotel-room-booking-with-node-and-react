@@ -1,8 +1,22 @@
 const roomQuery = require('./rooms.query');
 
 function createRooms(req, res, next) {
+    if (req.fileError) {
+        return next({ msg: "Invalid  File Format" })
+    }
+    if (req.files) {
+        if (req.files.thumbnailImage) {
+            req.body.thumbnailImage = req.files.thumbnailImage[0].filename;
+        }
+        if (req.files.GalleryImages) {
+            var myImages = [];
+            req.files.GalleryImages.forEach(function (item, index) {
+                myImages.push(item.filename)
+            })
+            req.body.GalleryImages = myImages;
+        }
+    }
     req.body.createdBy = req.loggedInUser;
-    console.log(req.body)
     roomQuery.createRoomQuery(req.body)
         .then(function (data) {
             res.json(data)
