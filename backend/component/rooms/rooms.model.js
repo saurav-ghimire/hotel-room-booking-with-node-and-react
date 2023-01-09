@@ -1,3 +1,4 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const roomSchema = new Schema({
@@ -12,7 +13,8 @@ const roomSchema = new Schema({
         type: Number,
     },
     roomType: {
-        type: String,
+        type: Schema.Types.ObjectId,
+        ref: 'roomType'
     },
     thumbnailImage: {
         type: String,
