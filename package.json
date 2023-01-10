@@ -1,0 +1,19 @@
+{
+  "name": "hotelbookingsystem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saurav-ghimire/hotel-room-booking-with-node-and-react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saurav-ghimire/hotel-room-booking-with-node-and-react/issues"
+  },
+  "homepage": "https://github.com/saurav-ghimire/hotel-room-booking-with-node-and-react#readme"
+}
