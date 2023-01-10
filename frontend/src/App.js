@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Pages
 import HomePage from "./pages/HomePage";
@@ -8,8 +8,6 @@ import PageNotFound from "./pages/400";
 // Sections
 import Footer from "./component/Footer";
 import Header from "./component/Header";
-import Banner from "./component/Banner";
-import Service from "./component/Service";
 
 // CSS
 import './assets/css/style.css'
@@ -17,7 +15,7 @@ import './assets/css/style.css'
 function App() {
   return (
     <div className='container'>
-      <Router>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -25,10 +23,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Banner />
-        <Service />
         <Footer />
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
